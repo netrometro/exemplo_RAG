@@ -1,0 +1,552 @@
+[
+    {
+        "id": "REQ001",
+        "classificador": "Autenticação",
+        "descrição": "O serviço de autenticação deverá validar as credenciais individuais dos usuários por meio de identificador de acesso e senha, vinculando cada sessão a uma conta previamente cadastrada. A autenticação deverá identificar o perfil institucional do usuário antes de liberar o acesso aos recursos da plataforma."
+    },
+    {
+        "id": "REQ002",
+        "classificador": "Autenticação",
+        "descrição": "O módulo de autenticação deverá permitir a redefinição de senhas por meio de um código ou link temporário enviado ao endereço eletrônico cadastrado. O mecanismo deverá validar a identidade do solicitante, estabelecer prazo de expiração para o código e invalidar a credencial anterior após a conclusão da redefinição."
+    },
+    {
+        "id": "REQ003",
+        "classificador": "Controle de Acesso",
+        "descrição": "O mecanismo de autorização deverá implementar controle de acesso baseado em papéis (RBAC), atribuindo permissões específicas aos perfis de administrador, coordenador, professor, aluno e responsável. Cada operação deverá verificar as permissões associadas ao perfil do usuário antes de permitir a execução."
+    },
+    {
+        "id": "REQ004",
+        "classificador": "Segurança",
+        "descrição": "O componente de armazenamento de credenciais deverá utilizar algoritmos próprios para proteção de senhas, como Argon2id ou bcrypt, com salt individual. Nenhuma senha poderá ser armazenada em texto puro ou disponibilizada em sua forma original por consultas administrativas."
+    },
+    {
+        "id": "REQ005",
+        "classificador": "Segurança",
+        "descrição": "A comunicação entre os clientes e os servidores deverá utilizar HTTPS com TLS atualizado, garantindo a confidencialidade e a integridade dos dados transmitidos durante autenticações, submissões de atividades, consultas acadêmicas e operações administrativas."
+    },
+    {
+        "id": "REQ006",
+        "classificador": "Segurança",
+        "descrição": "O módulo de auditoria deverá registrar tentativas de autenticação malsucedidas, acessos negados, alterações de permissões e redefinições de credenciais. Cada registro deverá conter a identificação do usuário, data, horário, endereço IP e descrição do evento."
+    },
+    {
+        "id": "REQ007",
+        "classificador": "Usabilidade",
+        "descrição": "A interface da plataforma deverá organizar os recursos em módulos correspondentes às atividades acadêmicas, administrativas e pedagógicas. Os elementos de navegação deverão manter posicionamento e nomenclatura padronizados entre os módulos, conforme o perfil de acesso do usuário."
+    },
+    {
+        "id": "REQ008",
+        "classificador": "Gerenciamento de Usuários",
+        "descrição": "O módulo de gerenciamento de usuários deverá permitir o cadastro, a consulta, a atualização, o bloqueio e a desativação de contas. Cada cadastro deverá conter nome completo, endereço eletrônico, documento de identificação, telefone, perfil institucional e situação da conta."
+    },
+    {
+        "id": "REQ009",
+        "classificador": "Gerenciamento de Usuários",
+        "descrição": "O sistema deverá associar cada usuário a uma instituição de ensino e, quando aplicável, a departamentos, cursos e unidades acadêmicas. Essas associações deverão determinar o escopo institucional dos registros que poderão ser consultados ou modificados pelo usuário."
+    },
+    {
+        "id": "REQ010",
+        "classificador": "Gestão Acadêmica",
+        "descrição": "O módulo administrativo deverá permitir o cadastro de instituições de ensino, contendo razão social, nome fantasia, código institucional, endereço, informações de contato, modalidade de ensino e situação administrativa. Cada instituição deverá possuir identificador único."
+    },
+    {
+        "id": "REQ011",
+        "classificador": "Gestão Acadêmica",
+        "descrição": "O módulo de cursos deverá registrar nome, código, descrição, modalidade, carga horária total, período de duração e situação de cada curso. Cada curso deverá estar vinculado a uma instituição de ensino e poderá possuir diferentes disciplinas em sua estrutura curricular."
+    },
+    {
+        "id": "REQ012",
+        "classificador": "Gestão Acadêmica",
+        "descrição": "O módulo acadêmico deverá permitir o cadastro de disciplinas com código identificador, nome, descrição, carga horária, ementa, objetivos de aprendizagem e bibliografia recomendada. Cada disciplina deverá estar associada a pelo menos um curso."
+    },
+    {
+        "id": "REQ013",
+        "classificador": "Gestão Acadêmica",
+        "descrição": "O sistema deverá cadastrar turmas contendo identificador, curso associado, período letivo, ano, semestre, turno e quantidade máxima de alunos. Cada turma deverá permitir a associação de disciplinas, professores e estudantes."
+    },
+    {
+        "id": "REQ014",
+        "classificador": "Gestão Acadêmica",
+        "descrição": "O módulo de matrículas deverá registrar a vinculação dos alunos aos cursos e às turmas, armazenando data de matrícula, período letivo e situação acadêmica. O sistema deverá impedir matrículas duplicadas para o mesmo vínculo e rejeitar novas matrículas quando a capacidade máxima da turma tiver sido atingida."
+    },
+    {
+        "id": "REQ015",
+        "classificador": "Gestão Acadêmica",
+        "descrição": "O módulo acadêmico deverá registrar transferências de alunos entre turmas, identificando turma de origem, turma de destino, data da transferência e responsável pela operação. As informações acadêmicas anteriores deverão permanecer vinculadas ao histórico do estudante."
+    },
+    {
+        "id": "REQ016",
+        "classificador": "Gestão de Professores",
+        "descrição": "O módulo de recursos humanos deverá cadastrar professores com informações pessoais, formação acadêmica, especialização, titulação, registro profissional quando aplicável e vínculo institucional. Cada cadastro deverá possuir identificador individual."
+    },
+    {
+        "id": "REQ017",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá apresentar orientações contextuais para operações de consulta de disciplinas, envio de atividades, lançamento de notas e cadastro de informações acadêmicas. As orientações deverão ser associadas às respectivas funcionalidades e disponibilizadas sem exigir treinamento técnico especializado."
+    },
+    {
+        "id": "REQ018",
+        "classificador": "Gestão de Professores",
+        "descrição": "O módulo de atribuição docente deverá vincular professores às disciplinas e turmas, registrando carga horária, período letivo, função acadêmica e data de início do vínculo. As atribuições anteriores deverão permanecer armazenadas para consulta administrativa."
+    },
+    {
+        "id": "REQ019",
+        "classificador": "Gestão de Alunos",
+        "descrição": "O cadastro acadêmico deverá armazenar informações pessoais dos alunos, incluindo dados de contato, documentos de identificação, responsável legal quando aplicável, matrícula institucional, curso, turma e situação acadêmica. Cada estudante deverá possuir um registro individual."
+    },
+    {
+        "id": "REQ020",
+        "classificador": "Conteúdo Educacional",
+        "descrição": "O módulo de conteúdos deverá permitir que professores cadastrem, editem e publiquem materiais didáticos associados às disciplinas. Serão aceitos arquivos PDF, apresentações, imagens, vídeos, arquivos de áudio e conteúdos textuais, respeitando os formatos e limites de armazenamento definidos pela instituição."
+    },
+    {
+        "id": "REQ021",
+        "classificador": "Conteúdo Educacional",
+        "descrição": "O repositório educacional deverá organizar os materiais em módulos, unidades, capítulos e tópicos. Cada material deverá possuir título, descrição, autoria, data de publicação, versão e vínculo com a disciplina e o período letivo correspondentes."
+    },
+    {
+        "id": "REQ022",
+        "classificador": "Conteúdo Educacional",
+        "descrição": "O módulo de conteúdos deverá permitir a configuração de datas de publicação e encerramento da disponibilidade dos materiais. Também deverá permitir a restrição de acesso por disciplina, turma, grupo de estudantes e período acadêmico."
+    },
+    {
+        "id": "REQ023",
+        "classificador": "Conteúdo Educacional",
+        "descrição": "O repositório deverá manter o histórico de versões dos materiais didáticos, identificando o responsável pela alteração, a data da modificação e o conteúdo de cada versão. Professores autorizados deverão poder consultar e recuperar versões anteriores."
+    },
+    {
+        "id": "REQ024",
+        "classificador": "Atividades Acadêmicas",
+        "descrição": "O módulo de atividades deverá permitir a criação de exercícios, trabalhos individuais, trabalhos em grupo e pesquisas. Cada atividade deverá possuir título, descrição, instruções, pontuação máxima, data de publicação, prazo de entrega e critérios de avaliação."
+    },
+    {
+        "id": "REQ025",
+        "classificador": "Atividades Acadêmicas",
+        "descrição": "O sistema deverá registrar as submissões realizadas pelos alunos, armazenando arquivos enviados ou respostas textuais, identificação do estudante, atividade correspondente e data e horário do envio. Cada submissão deverá possuir identificador próprio."
+    },
+    {
+        "id": "REQ026",
+        "classificador": "Atividades Acadêmicas",
+        "descrição": "O módulo de atividades deverá identificar submissões realizadas dentro do prazo, após o vencimento ou não realizadas. Os professores poderão configurar o recebimento de entregas atrasadas, incluindo penalidades de pontuação ou bloqueio de novos envios."
+    },
+    {
+        "id": "REQ027",
+        "classificador": "Avaliação",
+        "descrição": "O módulo de avaliações deverá permitir a criação de provas, questionários, testes objetivos e avaliações discursivas ou práticas. Cada avaliação deverá conter disciplina, turma, período de realização, pontuação máxima e critérios de correção."
+    },
+    {
+        "id": "REQ028",
+        "classificador": "Avaliação",
+        "descrição": "O banco de questões deverá armazenar perguntas classificadas por disciplina, assunto, tópico, nível de dificuldade e tipo de questão. As questões poderão ser reutilizadas em avaliações distintas, desde que o usuário possua permissão para acessá-las."
+    },
+    {
+        "id": "REQ029",
+        "classificador": "Avaliação",
+        "descrição": "O módulo de avaliações deverá suportar questões de múltipla escolha, verdadeiro ou falso, associação de colunas e respostas discursivas. Para questões objetivas, o professor deverá cadastrar o gabarito e a pontuação correspondente a cada alternativa ou resposta."
+    },
+    {
+        "id": "REQ030",
+        "classificador": "Avaliação",
+        "descrição": "O módulo de correção deverá permitir o lançamento de pontuações, comentários, justificativas e observações pedagógicas nas respostas discursivas e atividades submetidas. Cada correção deverá identificar o avaliador e registrar a data e o horário da operação."
+    },
+    {
+        "id": "REQ031",
+        "classificador": "Gestão de Notas",
+        "descrição": "O módulo de notas deverá armazenar os resultados dos alunos por disciplina, turma e período letivo. Cada lançamento deverá identificar a avaliação correspondente, a pontuação atribuída e o professor responsável pelo registro."
+    },
+    {
+        "id": "REQ032",
+        "classificador": "Gestão de Notas",
+        "descrição": "O mecanismo de cálculo acadêmico deverá calcular médias utilizando os critérios configurados para cada disciplina, incluindo média aritmética, média ponderada ou soma de pontos. Os pesos e as regras de aprovação deverão ser definidos previamente pelo professor ou pela instituição."
+    },
+    {
+        "id": "REQ033",
+        "classificador": "Gestão de Notas",
+        "descrição": "O módulo acadêmico deverá disponibilizar os resultados das avaliações após a autorização do professor ou da coordenação responsável. Cada aluno poderá consultar somente seus próprios resultados, enquanto os profissionais autorizados poderão consultar os resultados das turmas sob sua responsabilidade."
+    },
+    {
+        "id": "REQ034",
+        "classificador": "Frequência",
+        "descrição": "O módulo de frequência deverá permitir o registro de presença, ausência e atraso dos alunos em cada aula. Cada ocorrência deverá estar associada à turma, disciplina, professor, data da aula e período letivo."
+    },
+    {
+        "id": "REQ035",
+        "classificador": "Frequência",
+        "descrição": "O mecanismo de frequência deverá calcular o percentual de presença dos alunos com base nas aulas registradas e na carga horária da disciplina. O sistema deverá identificar estudantes abaixo do limite mínimo estabelecido pela instituição."
+    },
+    {
+        "id": "REQ036",
+        "classificador": "Histórico Escolar",
+        "descrição": "O módulo de histórico escolar deverá armazenar disciplinas cursadas, períodos letivos, notas finais, frequência, carga horária e resultados de aprovação ou reprovação. Os registros deverão permanecer disponíveis após a conclusão ou o encerramento do vínculo acadêmico."
+    },
+    {
+        "id": "REQ037",
+        "classificador": "Relatórios Acadêmicos",
+        "descrição": "O módulo de relatórios deverá gerar documentos com médias por disciplina, índices de aprovação, reprovação, frequência e rendimento por turma. Os relatórios deverão permitir filtros por instituição, curso, disciplina, professor e período letivo."
+    },
+    {
+        "id": "REQ038",
+        "classificador": "Relatórios Administrativos",
+        "descrição": "O módulo administrativo deverá gerar relatórios de matrículas, quantidade de alunos ativos, distribuição de turmas, carga horária docente e disciplinas ofertadas. Os documentos deverão permitir exportação nos formatos PDF e CSV."
+    },
+    {
+        "id": "REQ039",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá utilizar padrões visuais uniformes para elementos equivalentes, incluindo botões, campos de formulário, ícones, títulos, mensagens e componentes de navegação. A nomenclatura e o posicionamento desses elementos deverão ser mantidos entre os módulos da plataforma."
+    },
+    {
+        "id": "REQ040",
+        "classificador": "Comunicação",
+        "descrição": "O módulo de comunicação deverá permitir o envio de mensagens entre professores, alunos, coordenadores e administradores, conforme as permissões de cada perfil. Cada mensagem deverá armazenar remetente, destinatário, assunto, conteúdo, data de envio e situação de leitura."
+    },
+    {
+        "id": "REQ041",
+        "classificador": "Notificações",
+        "descrição": "O serviço de notificações deverá emitir alertas sobre publicação de atividades, vencimento de prazos, divulgação de notas, alterações acadêmicas e comunicados institucionais. Cada notificação deverá ser direcionada aos usuários relacionados ao evento correspondente."
+    },
+    {
+        "id": "REQ042",
+        "classificador": "Calendário Acadêmico",
+        "descrição": "O módulo de calendário deverá registrar datas de início e término dos períodos letivos, feriados, recessos, avaliações, matrículas e eventos acadêmicos. Os eventos poderão ser associados a instituições, cursos, disciplinas e turmas específicas."
+    },
+    {
+        "id": "REQ043",
+        "classificador": "Armazenamento de Dados",
+        "descrição": "O banco de dados deverá armazenar informações de usuários, instituições, cursos, disciplinas, turmas, matrículas, avaliações, notas e demais registros acadêmicos. As tabelas deverão possuir relacionamentos, chaves primárias, chaves estrangeiras e restrições de integridade referencial."
+    },
+    {
+        "id": "REQ044",
+        "classificador": "Arquitetura",
+        "descrição": "A arquitetura da aplicação deverá separar os componentes de autenticação, gestão acadêmica, conteúdos, avaliações, relatórios e comunicação. Cada módulo deverá possuir responsabilidades definidas e interfaces de integração documentadas."
+    },
+    {
+        "id": "REQ045",
+        "classificador": "Arquitetura",
+        "descrição": "A camada de serviços deverá disponibilizar uma API REST para comunicação entre módulos e aplicações externas autorizadas. Os recursos deverão utilizar métodos HTTP apropriados, estruturas padronizadas de resposta e mecanismos de autenticação e autorização."
+    },
+    {
+        "id": "REQ046",
+        "classificador": "Integração",
+        "descrição": "O serviço de autenticação deverá permitir integração com provedores institucionais por meio de OAuth 2.0 ou OpenID Connect. A integração deverá validar as identidades externas e associar os usuários autenticados aos respectivos registros internos."
+    },
+    {
+        "id": "REQ047",
+        "classificador": "Integração",
+        "descrição": "O módulo de integração deverá permitir a associação de disciplinas e turmas a plataformas externas de videoconferência e ambientes virtuais de aprendizagem. Deverá armazenar identificadores externos, endereços de acesso e informações de sincronização."
+    },
+    {
+        "id": "REQ048",
+        "classificador": "Backup e Recuperação",
+        "descrição": "O serviço de backup deverá executar cópias automáticas dos dados acadêmicos, administrativos e documentos armazenados. Cada cópia deverá possuir identificação temporal, localização de armazenamento, política de retenção e mecanismo de verificação de integridade."
+    },
+    {
+        "id": "REQ049",
+        "classificador": "Backup e Recuperação",
+        "descrição": "O procedimento de recuperação deverá restaurar informações a partir dos backups disponíveis após situações de falha, corrupção ou perda de dados. A restauração deverá preservar os relacionamentos entre registros e gerar um histórico da operação executada."
+    },
+    {
+        "id": "REQ050",
+        "classificador": "Desempenho",
+        "descrição": "A aplicação deverá responder às operações comuns de autenticação, consulta de notas, registro de frequência e acesso a conteúdos em até 3 segundos, considerando uma carga de até 500 usuários simultâneos em ambiente de homologação. As medições deverão ser realizadas sob condições de infraestrutura documentadas."
+    },
+    {
+        "id": "REQ051",
+        "classificador": "Escalabilidade",
+        "descrição": "A infraestrutura deverá permitir a ampliação dos recursos de processamento, memória e armazenamento conforme o crescimento da quantidade de instituições, alunos, professores e materiais cadastrados. A expansão deverá ocorrer sem exigir a reconstrução integral da aplicação."
+    },
+    {
+        "id": "REQ052",
+        "classificador": "Privacidade e Proteção de Dados",
+        "descrição": "O sistema deverá processar dados pessoais conforme as disposições da Lei Geral de Proteção de Dados Pessoais (LGPD). Cada operação de coleta, armazenamento, consulta e compartilhamento deverá observar a finalidade do tratamento e a respectiva base legal aplicável."
+    },
+    {
+        "id": "REQ053",
+        "classificador": "Auditoria e Rastreabilidade",
+        "descrição": "O módulo de auditoria deverá registrar operações de criação, alteração, exclusão lógica e consulta de registros sensíveis. Cada evento deverá conter usuário responsável, tipo de operação, registro afetado, data e horário, permitindo reconstruir a sequência de alterações."
+    },
+    {
+        "id": "REQ054",
+        "classificador": "Planejamento Pedagógico",
+        "descrição": "O módulo pedagógico deverá permitir a elaboração de planos de ensino contendo objetivos gerais e específicos, competências, habilidades, metodologia, conteúdos programáticos, recursos didáticos e estratégias de avaliação. Cada plano deverá estar associado a uma disciplina e a um período letivo."
+    },
+    {
+        "id": "REQ055",
+        "classificador": "Planejamento Pedagógico",
+        "descrição": "O módulo de planejamento deverá permitir o cadastro de planos de aula contendo data prevista, conteúdo, objetivos de aprendizagem, metodologia, recursos necessários e atividades planejadas. Cada plano de aula deverá estar vinculado ao plano de ensino correspondente."
+    },
+    {
+        "id": "REQ056",
+        "classificador": "Planejamento Pedagógico",
+        "descrição": "O módulo pedagógico deverá registrar os tópicos previstos e efetivamente ministrados em cada disciplina. O percentual de execução do conteúdo programático deverá ser calculado com base na quantidade de tópicos concluídos em relação ao total planejado."
+    },
+    {
+        "id": "REQ057",
+        "classificador": "Matriz Curricular",
+        "descrição": "O módulo curricular deverá permitir a elaboração de matrizes contendo disciplinas obrigatórias, optativas, pré-requisitos, carga horária e períodos recomendados. Cada versão da matriz deverá ser identificada pelo curso e pelo ano de vigência."
+    },
+    {
+        "id": "REQ058",
+        "classificador": "Matriz Curricular",
+        "descrição": "O mecanismo de matrícula deverá verificar os pré-requisitos acadêmicos antes de permitir a inscrição em uma disciplina. A validação deverá considerar aprovações anteriores, equivalências reconhecidas e a matriz curricular aplicável ao aluno."
+    },
+    {
+        "id": "REQ059",
+        "classificador": "Gestão de Estágios",
+        "descrição": "O módulo de estágios deverá cadastrar empresas concedentes, alunos, supervisores externos, professores orientadores, períodos de realização e cargas horárias previstas. Cada estágio deverá estar associado ao vínculo acadêmico correspondente."
+    },
+    {
+        "id": "REQ060",
+        "classificador": "Gestão de Estágios",
+        "descrição": "O módulo de estágios deverá registrar atividades desenvolvidas pelos estudantes, datas de execução, horas cumpridas e avaliações dos supervisores. O total de horas realizadas deverá ser calculado automaticamente e comparado à carga horária obrigatória."
+    },
+    {
+        "id": "REQ061",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá apresentar os elementos textuais, controles e imagens informativas com identificação compatível com tecnologias assistivas. Os componentes interativos deverão possuir nomes acessíveis e permitir operação integral por teclado, sem depender exclusivamente de dispositivos apontadores."
+    },
+    {
+        "id": "REQ062",
+        "classificador": "Gestão de Projetos Acadêmicos",
+        "descrição": "O módulo de projetos deverá cadastrar iniciativas de pesquisa, extensão e iniciação científica, contendo título, resumo, objetivos, metodologia, coordenador, participantes, instituição financiadora e período de execução. Cada projeto deverá possuir identificador próprio."
+    },
+    {
+        "id": "REQ063",
+        "classificador": "Gestão de Projetos Acadêmicos",
+        "descrição": "O módulo de acompanhamento deverá registrar as etapas dos projetos acadêmicos, incluindo atividades previstas, responsáveis, prazos, entregas e percentual de conclusão. Os documentos comprobatórios deverão permanecer vinculados às respectivas etapas."
+    },
+    {
+        "id": "REQ064",
+        "classificador": "Biblioteca Digital",
+        "descrição": "O módulo de biblioteca deverá cadastrar livros, artigos científicos, periódicos, monografias, dissertações, teses e outras publicações. Cada registro deverá conter título, autoria, editora, ano de publicação e identificadores bibliográficos, como ISBN ou ISSN quando aplicáveis."
+    },
+    {
+        "id": "REQ065",
+        "classificador": "Biblioteca Digital",
+        "descrição": "O módulo de empréstimos deverá registrar o exemplar, o usuário responsável, a data de retirada, o prazo de devolução e a data efetiva de devolução. O sistema deverá atualizar a disponibilidade dos exemplares após cada movimentação."
+    },
+    {
+        "id": "REQ066",
+        "classificador": "Biblioteca Digital",
+        "descrição": "O módulo de biblioteca deverá permitir a associação de referências bibliográficas às disciplinas e aos planos de ensino. As referências deverão ser classificadas como bibliografia básica, complementar ou material de consulta adicional."
+    },
+    {
+        "id": "REQ067",
+        "classificador": "Gestão de Certificados",
+        "descrição": "O módulo de certificação deverá emitir certificados de participação e conclusão para atividades, cursos, eventos, palestras e oficinas. Cada documento deverá conter participante, atividade, carga horária, período de realização e instituição emissora."
+    },
+    {
+        "id": "REQ068",
+        "classificador": "Gestão de Certificados",
+        "descrição": "O serviço de validação de certificados deverá gerar um código exclusivo para cada documento emitido. A consulta do código deverá identificar a autenticidade, a situação e os dados essenciais do certificado, incluindo registros cancelados ou substituídos."
+    },
+    {
+        "id": "REQ069",
+        "classificador": "Atividades Complementares",
+        "descrição": "O módulo de atividades complementares deverá registrar eventos, cursos externos, monitorias, projetos de extensão, publicações científicas e atividades voluntárias. Cada registro deverá conter categoria, descrição, período de realização e documento comprobatório."
+    },
+    {
+        "id": "REQ070",
+        "classificador": "Atividades Complementares",
+        "descrição": "O mecanismo de contabilização deverá calcular a carga horária válida das atividades complementares conforme os limites definidos na matriz curricular. Horas excedentes aos limites de cada categoria não deverão ser contabilizadas no total obrigatório."
+    },
+    {
+        "id": "REQ071",
+        "classificador": "Gestão de Documentos",
+        "descrição": "O módulo documental deverá armazenar contratos, declarações, regulamentos, atas, termos de compromisso e documentos administrativos. Cada documento deverá possuir classificação, responsável, data de emissão, prazo de validade quando aplicável e vínculo institucional."
+    },
+    {
+        "id": "REQ072",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá adaptar a disposição dos componentes às resoluções de computadores, notebooks, tablets e smartphones. Formulários, tabelas, menus e áreas de conteúdo deverão reorganizar seus elementos conforme a largura disponível, sem ocultar informações ou controles necessários às operações."
+    },
+    {
+        "id": "REQ073",
+        "classificador": "Gestão de Documentos",
+        "descrição": "O módulo de aprovação documental deverá encaminhar documentos para análise dos responsáveis designados. O fluxo deverá registrar as situações de elaboração, submissão, aprovação, rejeição e arquivamento, incluindo justificativas e identificação dos responsáveis."
+    },
+    {
+        "id": "REQ074",
+        "classificador": "Gestão de Documentos",
+        "descrição": "O módulo documental deverá permitir a assinatura eletrônica por meio de integração com serviços especializados. Os registros deverão conter signatários, datas das assinaturas, identificadores de validação e evidências de integridade dos documentos."
+    },
+    {
+        "id": "REQ075",
+        "classificador": "Gestão Financeira Educacional",
+        "descrição": "O módulo financeiro deverá cadastrar informações dos contratos educacionais, incluindo mensalidades, taxas acadêmicas, bolsas, descontos e condições de pagamento. Cada lançamento deverá estar associado ao contrato e ao vínculo acadêmico correspondente."
+    },
+    {
+        "id": "REQ076",
+        "classificador": "Gestão Financeira Educacional",
+        "descrição": "O módulo financeiro deverá registrar cobranças, vencimentos, pagamentos, valores pendentes, juros e multas quando aplicáveis. Cada movimentação deverá possuir identificador único, data de competência e histórico de alterações."
+    },
+    {
+        "id": "REQ077",
+        "classificador": "Gestão de Bolsas",
+        "descrição": "O módulo de bolsas deverá cadastrar programas de auxílio financeiro contendo modalidade, instituição financiadora, quantidade de vagas, critérios de elegibilidade, percentual de desconto, vigência e documentação exigida."
+    },
+    {
+        "id": "REQ078",
+        "classificador": "Gestão de Bolsas",
+        "descrição": "O mecanismo de concessão de bolsas deverá avaliar os critérios de elegibilidade com base nas informações acadêmicas, socioeconômicas e documentais cadastradas. Cada análise deverá gerar um resultado acompanhado de justificativa e encaminhamento para aprovação quando necessário."
+    },
+    {
+        "id": "REQ079",
+        "classificador": "Gestão de Processos Administrativos",
+        "descrição": "O módulo de solicitações deverá registrar pedidos de emissão de declarações, revisão de notas, aproveitamento de disciplinas, trancamento de matrícula e cancelamento de vínculo. Cada solicitação deverá possuir protocolo, data de abertura, categoria, responsável e situação."
+    },
+    {
+        "id": "REQ080",
+        "classificador": "Gestão de Processos Administrativos",
+        "descrição": "O mecanismo de encaminhamento deverá direcionar solicitações administrativas aos setores responsáveis conforme a categoria do requerimento e a estrutura organizacional cadastrada. Cada encaminhamento deverá registrar responsável, data, prazo e setor de destino."
+    },
+    {
+        "id": "REQ081",
+        "classificador": "Gestão de Processos Administrativos",
+        "descrição": "O módulo de processos deverá manter o histórico cronológico de tramitação das solicitações, incluindo alterações de situação, encaminhamentos, pareceres, aprovações e indeferimentos. Cada movimentação deverá identificar o agente institucional responsável."
+    },
+    {
+        "id": "REQ082",
+        "classificador": "Educação a Distância",
+        "descrição": "O módulo de educação a distância deverá permitir a configuração de cursos com atividades presenciais, remotas, síncronas e assíncronas. Cada curso poderá registrar polos de apoio presencial, carga horária por modalidade e regras acadêmicas aplicáveis."
+    },
+    {
+        "id": "REQ083",
+        "classificador": "Educação a Distância",
+        "descrição": "O serviço de integração com plataformas de videoconferência deverá registrar participantes, duração das sessões e datas de realização. Os registros deverão ser associados às atividades acadêmicas correspondentes e utilizados conforme as regras institucionais de frequência."
+    },
+    {
+        "id": "REQ084",
+        "classificador": "Educação a Distância",
+        "descrição": "O módulo de trilhas de aprendizagem deverá organizar conteúdos, atividades e avaliações em sequências pedagógicas. Cada etapa poderá possuir critérios de conclusão e pré-requisitos que condicionem a liberação das etapas seguintes."
+    },
+    {
+        "id": "REQ085",
+        "classificador": "Gamificação Educacional",
+        "descrição": "O módulo de gamificação deverá atribuir pontuações a atividades educacionais conforme critérios definidos pelos professores, incluindo conclusão de exercícios, participação em projetos e resolução de desafios. Essas pontuações deverão permanecer separadas das notas acadêmicas oficiais."
+    },
+    {
+        "id": "REQ086",
+        "classificador": "Gamificação Educacional",
+        "descrição": "O módulo de conquistas deverá permitir a criação de medalhas digitais associadas a objetivos educacionais. Cada conquista deverá possuir critérios de obtenção, identificação, descrição e data de concessão ao estudante."
+    },
+    {
+        "id": "REQ087",
+        "classificador": "Inteligência Educacional",
+        "descrição": "O módulo de análise educacional deverá processar dados históricos de desempenho para identificar padrões de rendimento e possíveis dificuldades de aprendizagem. A análise deverá considerar notas, frequência, conclusão de atividades e evolução por disciplina."
+    },
+    {
+        "id": "REQ088",
+        "classificador": "Inteligência Educacional",
+        "descrição": "O mecanismo de análise preditiva deverá identificar estudantes com possíveis riscos de evasão considerando indicadores como reprovação, queda de desempenho, ausência de participação e histórico de abandono. Os resultados deverão ser apresentados aos profissionais responsáveis como indicadores de apoio à análise pedagógica."
+    },
+    {
+        "id": "REQ089",
+        "classificador": "Inteligência Educacional",
+        "descrição": "O módulo de indicadores deverá relacionar resultados de avaliações às competências e habilidades cadastradas nos planos pedagógicos. Os relatórios deverão identificar competências consolidadas e aquelas cujos resultados estejam abaixo dos parâmetros estabelecidos."
+    },
+    {
+        "id": "REQ090",
+        "classificador": "Inteligência Artificial",
+        "descrição": "O mecanismo de recomendação deverá sugerir materiais educacionais com base nas disciplinas cursadas, nos objetivos de aprendizagem e nos indicadores acadêmicos disponíveis. As recomendações deverão utilizar exclusivamente conteúdos cadastrados e autorizados pela instituição."
+    },
+    {
+        "id": "REQ091",
+        "classificador": "Inteligência Artificial",
+        "descrição": "O módulo de geração de questões deverá produzir sugestões de perguntas com base nos conteúdos didáticos cadastrados. Cada questão gerada deverá ser submetida à revisão e aprovação de um professor antes de integrar o banco oficial ou ser utilizada em avaliações."
+    },
+    {
+        "id": "REQ092",
+        "classificador": "Inteligência Artificial",
+        "descrição": "O serviço de avaliação assistida deverá processar respostas discursivas utilizando critérios e rubricas definidos pelo professor. As pontuações sugeridas deverão ser identificadas como resultados automatizados e dependerão da aprovação docente antes de serem registradas como notas oficiais."
+    },
+    {
+        "id": "REQ093",
+        "classificador": "Interoperabilidade",
+        "descrição": "O módulo de importação deverá receber dados acadêmicos de outras plataformas nos formatos CSV, JSON e XML. O processamento deverá validar os campos, identificar registros duplicados e gerar um relatório contendo as inconsistências encontradas."
+    },
+    {
+        "id": "REQ094",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá validar os dados informados em formulários antes de encaminhar as operações para processamento. Campos obrigatórios não preenchidos, formatos inválidos e valores fora dos limites estabelecidos deverão ser identificados individualmente, acompanhados da indicação do respectivo campo."
+    },
+    {
+        "id": "REQ095",
+        "classificador": "Interoperabilidade",
+        "descrição": "O módulo de exportação deverá disponibilizar informações acadêmicas nos formatos CSV, JSON e XML, incluindo matrículas, disciplinas, notas, frequência e históricos escolares. A exportação deverá respeitar as permissões do solicitante e as restrições de proteção de dados."
+    },
+    {
+        "id": "REQ096",
+        "classificador": "Interoperabilidade",
+        "descrição": "A camada de integração deverá suportar o padrão Learning Tools Interoperability (LTI), permitindo comunicação com ferramentas educacionais compatíveis. A troca de informações deverá contemplar identificadores de usuários, cursos, atividades e resultados de aprendizagem, conforme as permissões concedidas."
+    },
+    {
+        "id": "REQ097",
+        "classificador": "Monitoramento de Sistema",
+        "descrição": "O serviço de monitoramento deverá coletar métricas de utilização de processador, memória, armazenamento, conexões com o banco de dados e disponibilidade dos serviços. As métricas deverão possuir registros temporais para permitir análise histórica da infraestrutura."
+    },
+    {
+        "id": "REQ098",
+        "classificador": "Monitoramento de Sistema",
+        "descrição": "O mecanismo de monitoramento deverá detectar falhas nos serviços de autenticação, processamento acadêmico, armazenamento de arquivos e comunicação com o banco de dados. Cada falha identificada deverá gerar um registro técnico e um alerta direcionado aos responsáveis pela infraestrutura."
+    },
+    {
+        "id": "REQ099",
+        "classificador": "Disponibilidade",
+        "descrição": "A infraestrutura deverá possuir mecanismos de redundância para os componentes críticos de processamento e armazenamento. A indisponibilidade de uma instância deverá acionar procedimentos de contingência destinados à continuidade ou ao restabelecimento dos serviços essenciais."
+    },
+    {
+        "id": "REQ100",
+        "classificador": "Transações e Integridade",
+        "descrição": "O módulo de persistência deverá executar operações críticas por meio de transações atômicas, garantindo que todas as alterações relacionadas sejam confirmadas integralmente ou revertidas em caso de falha. O mecanismo deverá ser aplicado a matrículas, transferências, lançamentos financeiros e alterações curriculares."
+    },
+    {
+        "id": "REQ101",
+        "classificador": "Transações e Integridade",
+        "descrição": "O banco de dados deverá implementar mecanismos de controle de concorrência para impedir conflitos durante alterações simultâneas nos mesmos registros. As operações deverão utilizar controle otimista de versão ou bloqueios transacionais para impedir sobrescritas indevidas."
+    },
+    {
+        "id": "REQ102",
+        "classificador": "Segurança de Arquivos",
+        "descrição": "O serviço de recebimento de arquivos deverá validar extensões, tipos MIME, tamanho e integridade dos documentos enviados. Os arquivos deverão passar por análise antimalware antes de serem disponibilizados para consulta ou compartilhamento."
+    },
+    {
+        "id": "REQ103",
+        "classificador": "Segurança de Arquivos",
+        "descrição": "O repositório de documentos deverá armazenar arquivos em áreas protegidas, separadas do diretório público da aplicação. Cada solicitação de acesso deverá validar a identidade do usuário e suas permissões sobre o documento solicitado."
+    },
+    {
+        "id": "REQ104",
+        "classificador": "Retenção de Dados",
+        "descrição": "O módulo de governança de dados deverá aplicar políticas de retenção e descarte conforme a natureza dos registros e as obrigações legais e regulatórias. Cada descarte deverá registrar justificativa, data, responsável e identificação dos dados afetados."
+    },
+    {
+        "id": "REQ105",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá apresentar mensagens de retorno após operações de cadastro, alteração, envio, exclusão e consulta. Cada mensagem deverá identificar o resultado da operação, informar eventuais falhas e indicar os dados ou campos relacionados ao problema."
+    },
+    {
+        "id": "REQ106",
+        "classificador": "Conformidade Regulatória",
+        "descrição": "O módulo de conformidade deverá consolidar informações sobre cursos, corpo docente, infraestrutura, matrizes curriculares e indicadores acadêmicos. Os dados deverão ser organizados conforme os campos e exigências dos órgãos reguladores competentes."
+    },
+    {
+        "id": "REQ107",
+        "classificador": "Internacionalização",
+        "descrição": "A camada de apresentação e processamento deverá suportar diferentes idiomas e padrões regionais, incluindo formatos de data, separadores numéricos, moedas e convenções de identificação. Os valores originais dos registros deverão ser preservados durante as conversões de apresentação."
+    },
+    {
+        "id": "REQ108",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá disponibilizar atalhos e mecanismos de preenchimento automático para operações recorrentes, incluindo lançamento de frequência, registro de notas e publicação de materiais. As informações recuperadas automaticamente deverão ser identificadas antes da confirmação da operação."
+    },
+    {
+        "id": "REQ109",
+        "classificador": "Usabilidade",
+        "descrição": "A interface deverá solicitar confirmação antes da execução de operações que provoquem exclusão permanente ou alteração de informações acadêmicas relevantes. Quando houver possibilidade técnica de reversão, deverá disponibilizar um mecanismo de cancelamento ou restauração da operação."
+    },
+    {
+        "id": "REQ110",
+        "classificador": "Usabilidade",
+        "descrição": "A plataforma deverá disponibilizar um formulário para registro de comentários e avaliações sobre os recursos apresentados. As respostas deverão ser armazenadas sem alteração dos registros acadêmicos e consolidadas em relatórios destinados à análise da equipe responsável pelo desenvolvimento."
+    }
+]
